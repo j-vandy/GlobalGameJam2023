@@ -37,6 +37,10 @@ public class CountDown : MonoBehaviour
     private void UpdateNumberOfMiles()
     {
         numberOfMiles--;
+        if (numberOfMiles <= 0)
+        {
+            ScenesManager.instance.LoadScene(ScenesManager.Scene.GotToRoots);
+        }
         milesText.text = numberOfMiles.ToString();
     }
 }
