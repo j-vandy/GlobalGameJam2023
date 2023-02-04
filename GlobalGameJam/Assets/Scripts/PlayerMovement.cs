@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     // Private Variables
     private Vector2 inputVector;
     private Vector2 movementVector;
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D p_rigidbody2D;
     private float xValue;
 
     // Public Variables
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        p_rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -32,6 +32,6 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidbody2D.AddForce(movementVector);
+        p_rigidbody2D.AddForce(movementVector);
     }
 }
