@@ -10,18 +10,18 @@ public class CountDown : MonoBehaviour
 
     // Public Variables 
     [HideInInspector]
-    public int numberOfMiles;
-    public float updateTimeInSeconds = 0.5f;
+    public int numberOfMeters;
+    public float updateTimeInSeconds = 1f;
     public TMP_Text milesText;
 
     // Start is called before the first frame update
     void Start()
     {
-        nextTime = updateTimeInSeconds;
+        nextTime = Time.time + updateTimeInSeconds;
         // Pick a random number between 200 - 400
-        numberOfMiles = (int) Random.Range(175f, 375f);
+        numberOfMeters = (int) Random.Range(75f, 125f);
         // Set the number of miles to TMP_Text
-        milesText.text = numberOfMiles.ToString();
+        milesText.text = numberOfMeters.ToString();
     }
 
     // Update is called once per frame
@@ -30,17 +30,17 @@ public class CountDown : MonoBehaviour
         if (Time.time >= nextTime)
         {
             nextTime += updateTimeInSeconds;
-            UpdateNumberOfMiles();
+            UpdateNumberOfMeters();
         }
     }
 
-    private void UpdateNumberOfMiles()
+    private void UpdateNumberOfMeters()
     {
-        numberOfMiles--;
-        if (numberOfMiles <= 0)
+        numberOfMeters--;
+        if (numberOfMeters <= 0)
         {
             ScenesManager.instance.LoadScene(ScenesManager.Scene.GotToRoots);
         }
-        milesText.text = numberOfMiles.ToString();
+        milesText.text = numberOfMeters.ToString();
     }
 }

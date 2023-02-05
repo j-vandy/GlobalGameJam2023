@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManager : MonoBehaviour
 {
+
+    public float waterSpeed = 3f;
+    public float landSpeed = 2f;
+
     public enum Scene
     {
         MainMenu,
